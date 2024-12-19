@@ -28,15 +28,26 @@ async function getShopUpgrades() {
   const result = await fetch(
     "https://cookie-upgrade-api.vercel.app/api/upgrades"
   );
+  console.log("HTTP Response:", result);
+  const json = await result.json();
+  console.log("JSON Data:", json);
 
-  //We need to translate the data we are receiving from JSON, into something that we can use.
-  //const data = await (************THIS NEEDS FINISHING************)
-  //ALEX SUGGESTED await result.json()
-  //RETURN [*****************FINISH THIS****************]
-
-  //PUSH the upgrade data from the fetch into the empty shopUpgradesArray
-  //Remember that the upgrades that we fetched will be known by a variable name that you have set on line 33-35 (return)
+  //The following 4 lines were written with the help of ChatGPT:
+  const cookieUpgradeName = json.name;
+  const cookieElement = document.createElement("div");
+  cookieElement.textContent = `${cookieUpgradeName}`;
+  document.body.appendChild(cookieElement);
 }
+
+getShopUpgrades();
+
+//We need to translate the data we are receiving from JSON, into something that we can use.
+//const data = await (************THIS NEEDS FINISHING************)
+//ALEX SUGGESTED await result.json()
+//RETURN [*****************FINISH THIS****************]
+
+//PUSH the upgrade data from the fetch into the empty shopUpgradesArray
+//Remember that the upgrades that we fetched will be known by a variable name that you have set on line 33-35 (return)
 
 async function renderShopUpgrades() {
   const getShopItems = await getShopUpgrades();
@@ -71,5 +82,3 @@ setInterval(function () {
 }, 1000);
 
 //It is perfectly fine to perform all of the actions that we want our setInterval function to do with external functions, then you can callback those functions inside the setInterval function.
-
-
