@@ -8,13 +8,7 @@ let gameData = {
   cookiesPerSecond: 0,
 };
 
-// const shopUpgradesArray = [];
-//This is an empty array. Fill the array with data from the API.
-
-//DOM manipulation
-//Select the DOM elements(buttons, imgs, p, ...)
-
-//=====================
+//=================================================================
 //CODE TO INCREASE TOTAL COOKIE COUNT BY ONE WHEN BUTTON IS CLICKED:
 const cookieButton = document.getElementById("cookie-increment-button");
 const cookiesOwned = document.getElementById("total-cookies-owned");
@@ -29,7 +23,7 @@ function increaseCookies() {
 
 cookieButton.addEventListener("click", increaseCookies);
 
-//==========================================
+//============================================================
 //The following is the way to retrieve and display the upgrades
 const upgradesContainer = document.getElementById("upgrades-shop-container");
 async function getShopUpgrades() {
@@ -57,10 +51,18 @@ async function getShopUpgrades() {
 }
 getShopUpgrades();
 
-//We need to translate the data we are receiving from JSON, into something that we can use.
-//const data = await (************THIS NEEDS FINISHING************)
-//ALEX SUGGESTED await result.json()
-//RETURN [*****************FINISH THIS****************]
+//=====================================================================
+//THE FOLLOWING CODE IS FOR THE RESET BUTTON TO CHANGE THE AMOUNT OF COOKIES BACK TO ZERO EACH TIME:
+
+const resetButton = document.getElementById("reset-button");
+
+function resetCookies() {
+  cookiesOwned.textContent = `You own: ${cookieCount} cookies`;
+}
+resetButton.addEventListener("click", cookiesOwned.Reset());
+
+
+//=====================================================================
 
 //PUSH the upgrade data from the fetch into the empty shopUpgradesArray
 //Remember that the upgrades that we fetched will be known by a variable name that you have set on line 33-35 (return)
