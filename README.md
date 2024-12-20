@@ -12,4 +12,4 @@ Cookie Clicker Assignment
 - I managed to get the boxes for the returned API data to span the entire width of the screen! It's only doing the button at the moment, but it's a start...
 - Realised that it is probably showing all parts of the box at 100%, but because the words are short, they aren't spanning!
 - YAY!! I managed to get the 'Click here to get a cookie' button working. Again, there were a lot of Qs to AI to ask "explain this to me as if I'm 8". And even if it did spit out a piece of code, it wouldn't work and I'd have to do lots of debugging. So I'm leaning on AI, and I'm still questioning how much I'm learning as I wouldn't be able to clearly explain some of the code back to someone else, but I'm understanding generally how things are working and why.
--
+- Now working on getting the Reset button to reset the cookie amount. Trying to follow the same logic as the eventListener on the cookie button, but I think my lack of knowledge of the syntax is tripping me up as I can't get it to reset.
