@@ -23,19 +23,29 @@ function increaseCookies() {
 cookieButton.addEventListener("click", increaseCookies);
 
 //============================================================
-//CODE TO INCREASE COOKIES AFTER EACH SECOND
-
+//THE FOLLOWING IS THE CODE TO INCREASE COOKIES AFTER EACH SECOND
+//THE BELOW IS MY ORIGINAL CODE, BUT I HAD A FEELING IT COULD BE STREAMLINED EVEN FURTHER
 function increaseCookiesPerSecond() {
   cookieCount++;
   cookiesOwned.textContent = `You own: ${cookieCount} cookies`;
 }
-console.log("This works5");
 
-setInterval(function (increaseCookiesPerSecond) {
-  cookiesOwned++;
+setInterval(function () {
+  increaseCookiesPerSecond();
 }, 1000);
 
-cookiesOwned.addEventListener(increaseCookiesPerSecond);
+increaseCookiesPerSecond();
+
+// cookiesOwned.addEventListener(setInterval, increaseCookiesPerSecond);
+
+//============================================================
+//...THIS IS SUGGESTED STREAMLINED CODE BY CHATGPT, BUT I'VE LEFT MINE IN:
+
+// function increaseCookiesPerSecond() {
+//     cookiesOwned.textContent = `You own: ${++cookieCount} cookies`;
+//   }
+//   setInterval(increaseCookiesPerSecond, 1000);
+//   increaseCookiesPerSecond();
 
 //============================================================
 //The following is the way to retrieve and display the upgrades
