@@ -20,8 +20,22 @@ function increaseCookies() {
   cookieCount++;
   cookiesOwned.textContent = `You own: ${cookieCount} cookies`;
 }
-
 cookieButton.addEventListener("click", increaseCookies);
+
+//============================================================
+//CODE TO INCREASE COOKIES AFTER EACH SECOND
+
+function increaseCookiesPerSecond() {
+  cookieCount++;
+  cookiesOwned.textContent = `You own: ${cookieCount} cookies`;
+}
+console.log("This works5");
+
+setInterval(function (increaseCookiesPerSecond) {
+  cookiesOwned++;
+}, 1000);
+
+cookiesOwned.addEventListener(increaseCookiesPerSecond);
 
 //============================================================
 //The following is the way to retrieve and display the upgrades
