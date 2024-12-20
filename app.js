@@ -8,7 +8,7 @@ let gameData = {
   cookiesPerSecond: 0,
 };
 
-const shopUpgradesArray = [];
+// const shopUpgradesArray = [];
 //This is an empty array. Fill the array with data from the API.
 
 //DOM manipulation
