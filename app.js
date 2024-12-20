@@ -15,6 +15,21 @@ let gameData = {
 //Select the DOM elements(buttons, imgs, p, ...)
 
 //=====================
+//CODE TO INCREASE TOTAL COOKIE COUNT BY ONE WHEN BUTTON IS CLICKED:
+const cookieButton = document.getElementById("cookie-increment-button");
+const cookiesOwned = document.getElementById("total-cookies-owned");
+
+console.log(cookieButton);
+console.log(cookiesOwned);
+
+function increaseCookies() {
+  cookieCount++;
+  cookiesOwned.textContent = `You own: ${cookieCount} cookies`;
+}
+
+cookieButton.addEventListener("click", increaseCookies);
+
+//==========================================
 //The following is the way to retrieve and display the upgrades
 const upgradesContainer = document.getElementById("upgrades-shop-container");
 async function getShopUpgrades() {
@@ -25,14 +40,13 @@ async function getShopUpgrades() {
   const json = await result.json();
   console.log("JSON Data:", json);
 
-  //NC: The following lines were written with the support of ChatGPT:
   json.forEach((upgrade) => {
     const { id, cost, name, increase } = upgrade;
     const upgradeElement = document.createElement("div");
     upgradeElement.classList.add("shop", "item");
 
     upgradeElement.innerHTML = `
-    <div class="id">${id}</div>
+    <div class="id" width = 100%>${id}</div>
     <div class="name">${name}</div>
     <div class="cost">$${cost}</div>
     <div class="increase">+${increase}</div>
