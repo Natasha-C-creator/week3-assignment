@@ -1,13 +1,7 @@
 console.log("This is connected");
 
-//Need to be able to store some global values
-
 let cookieCount = 0;
-let cookiesPerSecond = 1;
-
-//You can start your game with having no cookies added to your total, or you can start with adding 1 cookie ps.
-
-//Alternatively, you could store the game values in an object (neat and tidy).
+let cookiesPerSecond = 0;
 
 let gameData = {
   cookieCount: 0,
@@ -22,7 +16,6 @@ const shopUpgradesArray = [];
 
 //=====================
 //The following is the way to retrieve and display the upgrades
-
 const upgradesContainer = document.getElementById("upgrades-shop-container");
 async function getShopUpgrades() {
   const result = await fetch(
@@ -31,7 +24,8 @@ async function getShopUpgrades() {
   console.log("HTTP Response:", result);
   const json = await result.json();
   console.log("JSON Data:", json);
-  // //The following lines were written with the help of ChatGPT:
+
+  //NC: The following lines were written with the support of ChatGPT:
   json.forEach((upgrade) => {
     const { id, cost, name, increase } = upgrade;
     const upgradeElement = document.createElement("div");
@@ -42,11 +36,11 @@ async function getShopUpgrades() {
     <div class="name">${name}</div>
     <div class="cost">$${cost}</div>
     <div class="increase">+${increase}</div>
+    <button class="buy-button">Buy $100</button>
 `;
     upgradesContainer.appendChild(upgradeElement);
   });
 }
-
 getShopUpgrades();
 
 //We need to translate the data we are receiving from JSON, into something that we can use.
