@@ -57,11 +57,13 @@ getShopUpgrades();
 const resetButton = document.getElementById("reset-button");
 
 function resetCookies() {
-  cookiesOwned.textContent = `You own: ${cookieCount} cookies`;
+  cookiesOwned.textContent = `You own 0 cookies`;
 }
-resetButton.addEventListener("click", cookiesOwned.Reset());
 
+console.log("This is working");
+resetButton.addEventListener("click", resetCookies);
 
+console.log("This is also working");
 //=====================================================================
 
 //PUSH the upgrade data from the fetch into the empty shopUpgradesArray
